@@ -1,0 +1,25 @@
+{
+  "name": "js-async-logger",
+  "version": "0.0.0",
+  "description": "A simple JavaScript logging module that send the logs periodically to server.",
+  "main": "index.js",
+  "scripts": {
+    "test": "\"jest\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mgovahi/js-async-logger.git"
+  },
+  "keywords": [
+    "js",
+    "logger",
+    "browser",
+    "logger"
+  ],
+  "author": "Mohsen Govahi (mhsn.govahi@gmail.com)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mgovahi/js-async-logger/issues"
+  },
+  "homepage": "https://github.com/mgovahi/js-async-logger#readme"
+}

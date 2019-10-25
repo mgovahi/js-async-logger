@@ -1,2 +1,2 @@
 
-console.log("There is nothing code here :)");
+console.log("There is nothing code here yet :)");

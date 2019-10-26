@@ -4,7 +4,8 @@
   "description": "A simple JavaScript logging module that send the logs periodically to server.",
   "main": "index.js",
   "scripts": {
-    "test": "\"jest\""
+    "test": "jest",
+    "build": "webpack --config configs/webpack.config.js"
   },
   "repository": {
     "type": "git",
@@ -21,5 +22,14 @@
   "bugs": {
     "url": "https://github.com/mgovahi/js-async-logger/issues"
   },
-  "homepage": "https://github.com/mgovahi/js-async-logger#readme"
+  "homepage": "https://github.com/mgovahi/js-async-logger#readme",
+  "devDependencies": {
+    "@babel/core": "^7.6.4",
+    "babel": "^6.23.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.0.6",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.9"
+  },
+  "dependencies": {}
 }

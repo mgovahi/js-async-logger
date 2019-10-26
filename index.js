@@ -1,1 +1,1 @@
-console.log("there is nothing code here yet. :)");
+export {default as Logger} from './src';

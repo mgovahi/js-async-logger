@@ -10,8 +10,6 @@ class RemoteService{
 
         return response.json();
     }
-
-
 }
 
 export default RemoteService;

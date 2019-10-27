@@ -1,10 +1,20 @@
 import ClientSorage from "./modules/clientStorage";
 import RemoteService from "./modules/remoteService";
 class Logger {
-    constructor(storage = new ClientSorage(),
-                remoteService = new RemoteService()){
+    constructor(options ,
+                storage = new ClientSorage(),
+                remoteService = new RemoteService(options)){
+        
+        this.options = options;
         this.storage = storage;
         this.remoteService = remoteService;
+        this.init(options);
+    }
+    init(options){
+        if(options.flushInterval){
+            this.intervalId = setInterval(() => this.flush(),
+            this.flushInterval)
+        }
     }
     prepareLogObject(content){
         return{
@@ -15,11 +25,24 @@ class Logger {
     log(content){
         this.storage.insert(this.prepareLogObject(content));
     }
-    flush(){
-        let logs = this.storage.read();
-        this.remoteService.sendLogs()
+    read(){
+        return this.storage.read();
     }
-
+    async flush(){
+        try{
+            let logs = this.storage.read();
+            if(logs && logs.length){
+            const result = await this.remoteService.sendLogs();
+            console.log("Server response => ", result.json())
+            return result.json();
+            }
+        }catch(err){
+            console.err( "Sending loggs faild", err);
+        }
+    }
+    clearFlushInterval(){
+        clearInterval(this.intervalId);
+    }
 }
 
 

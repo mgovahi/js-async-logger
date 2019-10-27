@@ -1,7 +1,7 @@
 class LocalStorageManager{
     constructor(name){
         this.name = name;
-        localStorage.setItem(this.name,JSON.stringify([]));
+        this.init();
     }
     read(){
         return JSON.parse(localStorage.getItem(this.name));
@@ -10,6 +10,12 @@ class LocalStorageManager{
         let loglist = this.read();
         loglist.push(value);
         localStorage.setItem(this.name,JSON.stringify(loglist));
+    }
+    drop(){
+        this.init();
+    }
+    init(){
+        localStorage.setItem(this.name,JSON.stringify([]));
     }
     
 }

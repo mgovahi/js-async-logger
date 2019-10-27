@@ -8,21 +8,14 @@ class ClientStorage{
 
     }
     read(){
-       this.storage.read(); 
+       return this.storage.read(); 
     }
     insert(data){
         this.storage.write(data)
     }
-    update(){
-
+    clear(){
+        this.storage.drop();
     }
-    drop(){
-
-    }
-    delete(){
-
-    }
-
 }
 
 export default ClientStorage;
